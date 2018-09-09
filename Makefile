@@ -46,7 +46,8 @@ lint:
 .PHONY: run
 ## run
 run:
-	go run $(GOFILES)
+	$(eval files := $(shell find . -type f -maxdepth 1 -name "*.go" -not -name '*_test.go'))
+	go run $(files)
 
 .PHONY: build
 ## build
